@@ -11,25 +11,26 @@ public class PlayerMovement : MonoBehaviour
     public float runSpeed = 40f;
     bool jump = false;
     bool crouch = false;
+    private Rigidbody2D rb;
 
     float horizontalMove = 0f; // Storing for passing to FixedUpdate
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        animator.SetFloat("VelocidadY", rb.velocity.y);
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
-        
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
-
+        
         if (Input.GetButtonDown("Jump"))
         {
+            animator.SetBool("Jump", true);
             jump = true;
-            animator.SetBool("IsJumping", true);
         }
 
         if (Input.GetButtonDown("Crouch"))
@@ -52,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnLanding()
     {
-        animator.SetBool("IsJumping", false);
+        animator.SetBool("Jump", false);
     }
 
     private void FixedUpdate() // Function dedicated to physics
