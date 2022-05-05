@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -26,7 +27,8 @@ public class Player : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        healthBar.SetHealth(currentHealth);
+        if (currentHealth <= 0) Die();
+;        healthBar.SetHealth(currentHealth);
     }
 
     public IEnumerator KnockBack(float KnockTime, float KnockPower, Transform enemy)
@@ -41,6 +43,11 @@ public class Player : MonoBehaviour
         }
 
         yield return 0;
+    }
+
+    void Die()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     
 }
