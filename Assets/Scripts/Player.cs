@@ -6,11 +6,13 @@ public class Player : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth;
+    private Rigidbody2D rb;
 
     public HealthBar healthBar;
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
     }
@@ -18,15 +20,27 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            TakeDamage(20);
-        }
+        
     }
 
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
     }
+
+    public IEnumerator KnockBack(float KnockTime, float KnockPower, Transform enemy)
+    {
+        float timer = 0;
+
+        while (KnockTime > timer)
+        {
+            timer += Time.deltaTime;
+            Vector2 direction = (enemy.transform.position - transform.position).normalized;
+            rb.AddForce(-direction * KnockPower);
+        }
+
+        yield return 0;
+    }
+    
 }

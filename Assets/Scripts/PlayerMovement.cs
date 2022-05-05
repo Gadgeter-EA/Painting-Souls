@@ -45,12 +45,6 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("IsCrouching", isCrouching);
     }
     
-    public bool IsCrouching()
-    {
-        return crouch;
-    }
-
-
     public void OnLanding()
     {
         animator.SetBool("Jump", false);

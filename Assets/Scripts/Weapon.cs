@@ -9,19 +9,19 @@ public class Weapon : MonoBehaviour
     public Transform firePoint; // FirePoint that is an emptyObject
     public GameObject bulletPrefab; // Prefab of the bullet
     Animator animator;
-    PlayerMovement playerMovement;
+    CharacterController2D controller;
     private float cooldownTimer = Mathf.Infinity;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        playerMovement = GetComponent<PlayerMovement>();
+        controller = GetComponent<CharacterController2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire") && cooldownTimer > attackCooldown && !playerMovement.IsCrouching())
+        if (Input.GetButtonDown("Fire") && cooldownTimer > attackCooldown && !controller.IsCrouching())
         {
             Shoot();
         }
