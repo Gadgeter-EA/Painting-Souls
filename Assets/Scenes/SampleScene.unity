@@ -207,7 +207,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 113318512}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -504,7 +504,7 @@ GameObject:
   - component: {fileID: 455060345}
   - component: {fileID: 455060344}
   - component: {fileID: 455060349}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -525,8 +525,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 812956883}
   speed: 400
-  nextWaypointDistance: 3
+  nextWaypointDistance: 2
   enemyGFX: {fileID: 1735424355}
+  circleCollider: {fileID: 455060347}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  range: 9.5
 --- !u!114 &455060345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -934,7 +939,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 641511579}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1104,7 +1109,7 @@ GameObject:
   - component: {fileID: 812956884}
   - component: {fileID: 812956885}
   - component: {fileID: 812956886}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1278,9 +1283,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1748101285
+  m_SortingLayer: 1
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: edbd1f612fedf0c4eb0182ece9c70b90, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1358,6 +1363,8 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   healthBar: {fileID: 1263134134}
+  iFramesDuration: 2
+  numberFlashes: 3
 --- !u!1 &882935721
 GameObject:
   m_ObjectHideFlags: 0
@@ -1367,7 +1374,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 882935722}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: CeilingCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1382,7 +1389,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 882935721}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.541, z: 0}
+  m_LocalPosition: {x: 0, y: 1.401, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 812956883}
@@ -2208,7 +2215,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1735424355}
   - component: {fileID: 1735424356}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}

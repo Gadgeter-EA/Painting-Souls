@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,6 +20,10 @@ public class EnemyAI : MonoBehaviour
     Seeker seeker;
     Rigidbody2D rb;
     
+    [SerializeField] private CircleCollider2D circleCollider;
+    [SerializeField] private LayerMask playerLayer;
+    [SerializeField] private float range;
+    private bool inSight = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -50,6 +55,28 @@ public class EnemyAI : MonoBehaviour
     
     // Update is called once per frame
     void FixedUpdate()
+    {
+        if (PlayerInSight()) inSight = true;
+
+        if (inSight) followPlayer();
+    }
+
+    private bool PlayerInSight()
+    {
+        RaycastHit2D hit = Physics2D.BoxCast(circleCollider.bounds.center, 
+            new Vector3(circleCollider.bounds.size.x * range, circleCollider.bounds.size.y * range, circleCollider.bounds.size.z), 0, Vector2.left,
+            0, playerLayer);
+        
+        return hit.collider != null;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(circleCollider.bounds.center, new Vector3(circleCollider.bounds.size.x * range, circleCollider.bounds.size.y * range, circleCollider.bounds.size.z));
+    }
+
+    void followPlayer()
     {
         if (path == null) // Checking if we have a path
             return;
