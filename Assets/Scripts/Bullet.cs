@@ -21,6 +21,7 @@ public class Bullet : MonoBehaviour
         {
             Enemy enemy = hitInfo.GetComponent<Enemy>();
             enemy.TakeDamage(damage);
+            FindObjectOfType<AudioManager>().Play("paintImpact");
             // Instantiate(impactEffect, transform.position,transform.rotation); Reproducing impact effect
             Destroy(gameObject); // Destroy the bullet
             
@@ -31,6 +32,7 @@ public class Bullet : MonoBehaviour
         }
         else
         {
+            FindObjectOfType<AudioManager>().Play("paintImpact");
             // Instantiate(impactEffect, transform.position,transform.rotation); Reproducing impact effect
             Destroy(gameObject); // Destroy the bullet
         }
