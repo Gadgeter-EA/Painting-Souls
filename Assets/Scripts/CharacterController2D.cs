@@ -51,10 +51,9 @@ public class CharacterController2D : MonoBehaviour
 		m_Grounded = Physics2D.OverlapCircle(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
 		if(m_Grounded)
 		{
-			if (!wasGrounded && m_Rigidbody2D.velocity.y < 0)
+			if (!wasGrounded)
 			{
 				OnLandEvent.Invoke();
-				Debug.Log("Tocando Piso");
 			}
 		}
 	}

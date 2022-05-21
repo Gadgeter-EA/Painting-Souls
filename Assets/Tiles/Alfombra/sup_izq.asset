@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: sup_izq
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 21300000, guid: 04b9734c8c7c4074d85e3e256930ceea, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_Transform:
     e00: 1
     e01: 0

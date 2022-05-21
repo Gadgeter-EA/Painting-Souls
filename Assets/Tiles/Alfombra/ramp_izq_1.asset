@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ramp_izq_1
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 21300000, guid: 9b2bf2c131a3d694f8f94dd8133fca01, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_Transform:
     e00: 1
     e01: 0
