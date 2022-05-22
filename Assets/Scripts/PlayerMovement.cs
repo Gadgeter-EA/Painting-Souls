@@ -35,19 +35,32 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Crouch"))
         {
-            crouch = true;
-        }else if (Input.GetButtonUp("Crouch")) crouch = false;
+            if (!jump)
+            {
+                crouch = true;
+            }
+            
+        }else if (Input.GetButtonUp("Crouch"))
+        {
+            if (!jump)
+            {
+                
+                crouch = false;
+            }
+        }
         
     }
 
     public void Crouching(bool isCrouching)
     {
+        FindObjectOfType<AudioManager>().Play("CrouchSound");
         animator.SetBool("IsCrouching", isCrouching);
     }
     
     public void OnLanding()
     {
         animator.SetBool("Jump", false);
+        jump = false;
     }
 
     private void FixedUpdate() // Function dedicated to physics
@@ -55,6 +68,5 @@ public class PlayerMovement : MonoBehaviour
         // Move character
         // Multplying by TimeDeltaTime makes sure the function executes ALWAYS the same, independent of the PC
         controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
-        jump = false;
     }
 }

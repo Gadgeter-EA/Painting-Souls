@@ -254,10 +254,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -321,6 +321,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 1852660357}
   Player: {fileID: 1699863181}
+  audioMixer: {fileID: 24100000, guid: 39d90183bfe968d4798d9f9af89d851b, type: 2}
 --- !u!1 &90973419
 GameObject:
   m_ObjectHideFlags: 0
@@ -1145,6 +1146,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3051471770877735173, guid: 103426b44a96ca94e8147c8ef9d165b9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.13
+      objectReference: {fileID: 0}
     - target: {fileID: 3051471770949814880, guid: 103426b44a96ca94e8147c8ef9d165b9, type: 3}
       propertyPath: m_Material
       value: 
@@ -14323,6 +14328,10 @@ PrefabInstance:
     - target: {fileID: 6003671684495663732, guid: 94384831cd4c1d4408b918fdc5e7e46e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6003671684495663733, guid: 94384831cd4c1d4408b918fdc5e7e46e, type: 3}
+      propertyPath: sounds.Array.data[3].name
+      value: Detective_loop
       objectReference: {fileID: 0}
     - target: {fileID: 6003671684495663734, guid: 94384831cd4c1d4408b918fdc5e7e46e, type: 3}
       propertyPath: m_Name

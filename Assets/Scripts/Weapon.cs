@@ -32,6 +32,7 @@ public class Weapon : MonoBehaviour
     void Shoot()
     {
         animator.SetTrigger("IsAttacking");
+        FindObjectOfType<AudioManager>().Play("AttackSound");
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         cooldownTimer = 0;
     }

@@ -8,7 +8,8 @@ public class Bullet : MonoBehaviour
     public float speed = 20f;
     public int damage = 20;
     public Rigidbody2D rb;
-    public Animator animator;
+    public GameObject impactEffect;
+    public GameObject impactEnemy;
     
     void Update()
     {
@@ -23,11 +24,8 @@ public class Bullet : MonoBehaviour
             Enemy enemy = hitInfo.GetComponent<Enemy>();
             enemy.TakeDamage(damage);
             FindObjectOfType<AudioManager>().Play("paintImpact");
-            animator.SetTrigger("HasImpact");
-            StartCoroutine(CheckAnimationCompleted("Impact", () =>
-            {
-                Destroy(gameObject); // Destroy the bullet
-            }));
+            Instantiate(impactEnemy, transform.position, transform.rotation);
+            Destroy(gameObject);
             
         }
         else if (hitInfo.gameObject.tag == "Player")
@@ -37,20 +35,17 @@ public class Bullet : MonoBehaviour
         else
         {
             FindObjectOfType<AudioManager>().Play("paintImpact");
-            animator.SetTrigger("HasImpact");
-            StartCoroutine(CheckAnimationCompleted("Impact", () =>
-            {
-                Destroy(gameObject); // Destroy the bullet
-            }));
+            Instantiate(impactEffect, transform.position, transform.rotation);
+            Destroy(gameObject);
         }
     }
 
-    public IEnumerator CheckAnimationCompleted(string currentAnim, Action Oncomplete)
+    /*public IEnumerator CheckAnimationCompleted(string currentAnim, Action Oncomplete)
     {
         while (!animator.GetCurrentAnimatorStateInfo(0).IsName(currentAnim))
             yield return null;
         if (Oncomplete != null)
             Oncomplete();
-    }
+    }*/
     
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 
@@ -10,11 +11,13 @@ public class PauseMenu : MonoBehaviour
     public static bool gameIsPaused = false;
     public GameObject pauseMenuUI;
     public GameObject Player;
+    [SerializeField] AudioMixer audioMixer;
 
     // Update is called once per frame
 
-    void Start()
+    private void Start()
     {
+        setOptions();
         FindObjectOfType<AudioManager>().Play("Detective_loop");
     }
     
@@ -56,6 +59,12 @@ public class PauseMenu : MonoBehaviour
     {
         Debug.Log("Bye");
         Application.Quit();
+    }
+
+    private void setOptions()
+    {
+        audioMixer.SetFloat("Volume", Mathf.Log10(PlayerPrefs.GetFloat("Volume")) * 20);
+        QualitySettings.SetQualityLevel(PlayerPrefs.GetInt("Quality"));
     }
     
     
