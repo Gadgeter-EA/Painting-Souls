@@ -12,6 +12,12 @@ public class PauseMenu : MonoBehaviour
     public GameObject Player;
 
     // Update is called once per frame
+
+    void Start()
+    {
+        FindObjectOfType<AudioManager>().Play("Detective_loop");
+    }
+    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))

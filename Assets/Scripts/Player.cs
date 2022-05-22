@@ -78,4 +78,10 @@ public class Player : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    public void AddHealth(int health)
+    {
+        currentHealth = Mathf.Clamp(currentHealth + health, 0, maxHealth);
+        healthBar.SetHealth(currentHealth);
+    }
 }

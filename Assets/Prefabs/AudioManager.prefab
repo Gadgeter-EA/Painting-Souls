@@ -49,10 +49,19 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    group: {fileID: 24300002, guid: 39d90183bfe968d4798d9f9af89d851b, type: 2}
     source: {fileID: 0}
   - name: mainMenuTheme
     clip: {fileID: 8300000, guid: d840688cd9fcc7443bd4bfe7198bf61a, type: 3}
     volume: 0.75
     pitch: 1
+    loop: 1
+    group: {fileID: 24300002, guid: 39d90183bfe968d4798d9f9af89d851b, type: 2}
+    source: {fileID: 0}
+  - name: heal
+    clip: {fileID: 8300000, guid: ee4919df7a85fdb4fbb47af5c2d50f0c, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
+    group: {fileID: 24300002, guid: 39d90183bfe968d4798d9f9af89d851b, type: 2}
     source: {fileID: 0}
