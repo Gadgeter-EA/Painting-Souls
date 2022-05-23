@@ -27,6 +27,13 @@ public class Bullet : MonoBehaviour
             Instantiate(impactEnemy, transform.position, transform.rotation);
             Destroy(gameObject);
             
+        }else if ((hitInfo.gameObject.tag == "EnemyAir"))
+        {
+            EnemyAir enemy = hitInfo.GetComponent<EnemyAir>();
+            enemy.TakeDamage(damage);
+            FindObjectOfType<AudioManager>().Play("paintImpact");
+            Instantiate(impactEnemy, transform.position, transform.rotation);
+            Destroy(gameObject);
         }
         else if (hitInfo.gameObject.tag == "Player")
         {

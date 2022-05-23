@@ -107,3 +107,17 @@ MonoBehaviour:
     loop: 0
     group: {fileID: 24300002, guid: 39d90183bfe968d4798d9f9af89d851b, type: 2}
     source: {fileID: 0}
+  - name: ElectricSound2
+    clip: {fileID: 8300000, guid: e9f81c8e58b116549956a0e654a7895a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    group: {fileID: 24300002, guid: 39d90183bfe968d4798d9f9af89d851b, type: 2}
+    source: {fileID: 0}
+  - name: PaperSound1
+    clip: {fileID: 8300000, guid: 718fbc094b689744c9db7562402fdaa1, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    group: {fileID: 24300002, guid: 39d90183bfe968d4798d9f9af89d851b, type: 2}
+    source: {fileID: 0}

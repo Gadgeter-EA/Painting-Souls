@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class EnemyAir : MonoBehaviour
 {
     public int health = 100;
     public int damage = 20;
@@ -12,22 +12,15 @@ public class Enemy : MonoBehaviour
     public string deathSound;
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
-    private Animator animator;
     //public GameObject deathEffect;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.material.SetFloat("_GrayscaleAmount", 1);
     }
     
-    void Update()
-    {
-        animator.SetFloat("Speed", Math.Abs(rb.velocity.x));
-    }
-
     public void TakeDamage(int damage)
     {
         health -= damage;

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
-public class EnemyAI : MonoBehaviour
+public class AirEnemyAI : MonoBehaviour
 {
     public Transform target; //Player
 
@@ -20,7 +20,7 @@ public class EnemyAI : MonoBehaviour
     Seeker seeker;
     Rigidbody2D rb;
     
-    [SerializeField] private BoxCollider2D boxCollider;
+    [SerializeField] private CircleCollider2D circleCollider;
     [SerializeField] private LayerMask playerLayer;
     [SerializeField] private float rangeX;
     [SerializeField] private float rangeY;
@@ -64,8 +64,8 @@ public class EnemyAI : MonoBehaviour
 
     private bool PlayerInSight()
     {
-        RaycastHit2D hit = Physics2D.BoxCast(boxCollider.bounds.center, 
-            new Vector3(boxCollider.bounds.size.x * rangeX, boxCollider.bounds.size.y * rangeY, boxCollider.bounds.size.z), 0, Vector2.left,
+        RaycastHit2D hit = Physics2D.BoxCast(circleCollider.bounds.center, 
+            new Vector3(circleCollider.bounds.size.x * rangeX, circleCollider.bounds.size.y * rangeY, circleCollider.bounds.size.z), 0, Vector2.left,
             0, playerLayer);
         
         return hit.collider != null;
@@ -74,7 +74,7 @@ public class EnemyAI : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(boxCollider.bounds.center, new Vector3(boxCollider.bounds.size.x * rangeX, boxCollider.bounds.size.y * rangeY, boxCollider.bounds.size.z));
+        Gizmos.DrawWireCube(circleCollider.bounds.center, new Vector3(circleCollider.bounds.size.x * rangeX, circleCollider.bounds.size.y * rangeY, circleCollider.bounds.size.z));
     }
 
     void followPlayer()
