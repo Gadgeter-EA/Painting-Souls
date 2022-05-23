@@ -11,6 +11,8 @@ public class PauseMenu : MonoBehaviour
     public static bool gameIsPaused = false;
     public GameObject pauseMenuUI;
     public GameObject Player;
+    public string music;
+    public bool isFirstLevel;
     [SerializeField] AudioMixer audioMixer;
 
     // Update is called once per frame
@@ -18,8 +20,8 @@ public class PauseMenu : MonoBehaviour
     private void Start()
     {
         setOptions();
-        FindObjectOfType<AudioManager>().Play("Detective_loop");
-        FindObjectOfType<AudioManager>().Play("OfficeAmbient");
+        FindObjectOfType<AudioManager>().Play(music);
+        if(isFirstLevel)FindObjectOfType<AudioManager>().Play("OfficeAmbient");
     }
     
     void Update()

@@ -32,7 +32,7 @@ public class Weapon : MonoBehaviour
         {
             if (currentPaint > 0)
             {
-                Shoot(20);
+                Shoot(10);
             } else FindObjectOfType<AudioManager>().Play("noPaint");
             
         }

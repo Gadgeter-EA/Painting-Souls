@@ -48,12 +48,15 @@ public class Enemy : MonoBehaviour
         //Instantiate(deathEffect, transform.position, Quaternion.identity); // Reproduce death animation
         Destroy(gameObject); // Destroy the Enemy Object
     }
-    void OnCollisionEnter2D(Collision2D hitInfo)
+    void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        if (hitInfo.gameObject.tag == "Player")
+        Player player = hitInfo.GetComponent<Player>();
+
+        if (player != null)
         {
             player.TakeDamage(damage);
             StartCoroutine(player.KnockBack(1f, 30f, transform));
+            Debug.Log("Kock");
         }
     }
 }
