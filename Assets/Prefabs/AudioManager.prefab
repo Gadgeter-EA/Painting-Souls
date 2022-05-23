@@ -81,7 +81,28 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: CrouchSound
     clip: {fileID: 8300000, guid: 642bf2cde3df72645ad5db2d24220344, type: 3}
-    volume: 0.1
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    group: {fileID: 24300002, guid: 39d90183bfe968d4798d9f9af89d851b, type: 2}
+    source: {fileID: 0}
+  - name: noPaint
+    clip: {fileID: 8300000, guid: 9c463e2bb114c344d94ab89510cbd4de, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    group: {fileID: 24300002, guid: 39d90183bfe968d4798d9f9af89d851b, type: 2}
+    source: {fileID: 0}
+  - name: OfficeAmbient
+    clip: {fileID: 8300000, guid: dbf04f2969a0a5940a57635b904f1de6, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 1
+    group: {fileID: 24300002, guid: 39d90183bfe968d4798d9f9af89d851b, type: 2}
+    source: {fileID: 0}
+  - name: grabPaint
+    clip: {fileID: 8300000, guid: 9d6813b89b772af4ea68ceafb54c6af4, type: 3}
+    volume: 1
     pitch: 1
     loop: 0
     group: {fileID: 24300002, guid: 39d90183bfe968d4798d9f9af89d851b, type: 2}

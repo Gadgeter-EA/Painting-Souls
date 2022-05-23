@@ -20,7 +20,7 @@ public class EnemyAI : MonoBehaviour
     Seeker seeker;
     Rigidbody2D rb;
     
-    [SerializeField] private CircleCollider2D circleCollider;
+    [SerializeField] private BoxCollider2D boxCollider;
     [SerializeField] private LayerMask playerLayer;
     [SerializeField] private float range;
     private bool inSight = false;
@@ -63,8 +63,8 @@ public class EnemyAI : MonoBehaviour
 
     private bool PlayerInSight()
     {
-        RaycastHit2D hit = Physics2D.BoxCast(circleCollider.bounds.center, 
-            new Vector3(circleCollider.bounds.size.x * range, circleCollider.bounds.size.y * range, circleCollider.bounds.size.z), 0, Vector2.left,
+        RaycastHit2D hit = Physics2D.BoxCast(boxCollider.bounds.center, 
+            new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y * range, boxCollider.bounds.size.z), 0, Vector2.left,
             0, playerLayer);
         
         return hit.collider != null;
@@ -73,7 +73,7 @@ public class EnemyAI : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(circleCollider.bounds.center, new Vector3(circleCollider.bounds.size.x * range, circleCollider.bounds.size.y * range, circleCollider.bounds.size.z));
+        Gizmos.DrawWireCube(boxCollider.bounds.center, new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y * range, boxCollider.bounds.size.z));
     }
 
     void followPlayer()

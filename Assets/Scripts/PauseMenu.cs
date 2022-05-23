@@ -19,6 +19,7 @@ public class PauseMenu : MonoBehaviour
     {
         setOptions();
         FindObjectOfType<AudioManager>().Play("Detective_loop");
+        FindObjectOfType<AudioManager>().Play("OfficeAmbient");
     }
     
     void Update()
@@ -36,6 +37,8 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
+        FindObjectOfType<AudioManager>().Play("Detective_loop");
+        FindObjectOfType<AudioManager>().Play("OfficeAmbient");
         Player.GetComponent<Weapon>().enabled = true;
         Time.timeScale = 1f;
         gameIsPaused = false;
@@ -44,6 +47,8 @@ public class PauseMenu : MonoBehaviour
     void Pause()
     {
         pauseMenuUI.SetActive(true);
+        FindObjectOfType<AudioManager>().Pause("Detective_loop");
+        FindObjectOfType<AudioManager>().Pause("OfficeAmbient");
         Player.GetComponent<Weapon>().enabled = false;
         Time.timeScale = 0f;
         gameIsPaused = true;
@@ -52,6 +57,7 @@ public class PauseMenu : MonoBehaviour
     public void LoadMenu()
     {
         Time.timeScale = 1f;
+        gameIsPaused = false;
         SceneManager.LoadScene(0);
     }
 

@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthCollectible : MonoBehaviour
+public class PaintCollectible : MonoBehaviour
 {
-    [SerializeField] private int healthValue;
+    [SerializeField] private int paintValue;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
-            collision.GetComponent<Player>().AddHealth(healthValue);
-            FindObjectOfType<AudioManager>().Play("heal");
+            collision.GetComponent<Weapon>().AddPaint(paintValue);
+            FindObjectOfType<AudioManager>().Play("grabPaint");
             Destroy(gameObject);
         }
     }

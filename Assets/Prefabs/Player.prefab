@@ -183,9 +183,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.006927779, y: -2.2799995}
+  m_Offset: {x: 0.006927779, y: -2.56}
   serializedVersion: 2
-  m_Radius: 2.169213
+  m_Radius: 1.9379536
 --- !u!114 &3051471770949814881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,6 +287,9 @@ MonoBehaviour:
   attackCooldown: 1
   firePoint: {fileID: 3051471771188364852}
   bulletPrefab: {fileID: 4106071862076286207, guid: 64bdb4ef3f0c4814087d3885ed67c4fb, type: 3}
+  maxPaint: 200
+  currentPaint: 0
+  paintBar: {fileID: 0}
 --- !u!114 &3051471770949814905
 MonoBehaviour:
   m_ObjectHideFlags: 0
